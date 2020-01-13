@@ -9,7 +9,7 @@ import json
 from collections import OrderedDict
 import argparse
 
-def data_transformation(data_dir='ImageClassifier/flowers'):
+def data_transformation(data_dir='flowers'):
     data_transforms = transforms.Compose([transforms.Resize(224),
                                           transforms.CenterCrop(224),
                                           transforms.ToTensor(),

@@ -9,7 +9,7 @@ import json
 from collections import OrderedDict
 import argparse
 
-def data_transformation(data_dir='ImageClassifier/flowers'):
+def data_transformation(data_dir='flowers'):
     data_transforms = transforms.Compose([transforms.Resize(224),
                                           transforms.CenterCrop(224),
                                           transforms.ToTensor(),
@@ -27,10 +27,10 @@ def data_transformation(data_dir='ImageClassifier/flowers'):
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--train_method" , type =str, default = "cpu" , help="Training method cpu or gpu")
-    parser.add_argument("--dir", type=str, default ="ImageClassifier/flowers/test/14/image_06052.jpg", help="Image path")
+    parser.add_argument("--dir", type=str, default ="flowers/test/14/image_06052.jpg", help="Image path")
     parser.add_argument("--chk_pth" , type=str, default="checkpoint.pth", help="Checkpoint Path" )
     parser.add_argument("--top_k" ,type = int,default = 5 , help ="Top K classes")
-    parser.add_argument("--map" , type=str, default ="ImageClassifier/cat_to_name.json" , help="Mapping name file path")
+    parser.add_argument("--map" , type=str, default ="cat_to_name.json" , help="Mapping name file path")
     return parser.parse_args()
 
 def load_model(filepath):
