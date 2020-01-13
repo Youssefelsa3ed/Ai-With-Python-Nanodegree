@@ -26,7 +26,7 @@ def data_transformation(data_dir='ImageClassifier/flowers'):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--train_method" , type =str, default = "cpu" , help="Training method GPU/CPU")
+    parser.add_argument("--train_method" , type =str, default = "cpu" , help="Training method cpu or gpu")
     parser.add_argument("--dir", type=str, default ="ImageClassifier/flowers/test/14/image_06052.jpg", help="Image path")
     parser.add_argument("--chk_pth" , type=str, default="checkpoint.pth", help="Checkpoint Path" )
     parser.add_argument("--top_k" ,type = int,default = 5 , help ="Top K classes")
@@ -74,7 +74,6 @@ def process_image(image):
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])])
     
-    # TODO: Process a PIL image for use in a PyTorch model
     pil_image = Image.open(image)
 
     return transform(pil_image)
